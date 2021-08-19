@@ -1,0 +1,108 @@
+﻿@model ActivosFijo.Models.TblCategoria
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<div class="container-fluid mt-lg-5">
+    <div class="row">
+        <div class="col-xl-12 order-xl-">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row align-items-center">
+                        <div class="col-8">
+                            <h2 class="mb-0">Eliminar la Categoría</h2>
+                        </div>
+                        <div class="col-4 text-right">
+                            <a class="nav-link active" href="@Url.Action("Index","TblCategorias")">
+                                <i class="ni ni-bold-left text-primary"></i>
+                                <span class="text-primary">Regresar</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="pl-lg-4">
+                        <div class="alert alert-danger" role="alert">
+                            <strong>Alerta!</strong> Esta seguro de eliminar esta Categoría?
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <dl class="dl-horizontal">
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.cDescripcion)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.cDescripcion)
+                                    </dd>
+                                </dl>
+                            </div>
+                            <div class="col-lg-6">
+                                <dl class="dl-horizontal">
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.cEstatus)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.cEstatus)
+                                    </dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="row align-items-center">
+
+                        <div class="col-12 text-right">
+                            @using (Html.BeginForm())
+                            {
+                                @Html.AntiForgeryToken()
+
+                                <div class="form-actions no-color">
+                                    <input type="submit" value="Eliminar" class="btn btn-danger" />
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>TblCategoria</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.cDescripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cDescripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cEstatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cEstatus)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>*@

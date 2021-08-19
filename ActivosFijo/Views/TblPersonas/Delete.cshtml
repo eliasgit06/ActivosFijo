@@ -1,0 +1,366 @@
+﻿@model ActivosFijo.Models.TblPersona
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+
+<div class="container-fluid mt-lg-5">
+    <div class="row">
+        <div class="col-xl-12 order-xl-">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row align-items-center">
+                        <div class="col-8">
+                            <h2 class="mb-0">Eliminar Persona</h2>
+                        </div>
+                        <div class="col-4 text-right">
+                            <a class="nav-link active" href="@Url.Action("Index","TblPersonas")">
+                                <i class="ni ni-bold-left text-primary"></i>
+                                <span class="text-primary">Regresar</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="pl-lg-4">
+                        <div class="alert alert-danger" role="alert">
+                            <strong>Alerta!</strong> Esta seguro de eliminar esta Persona?
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <dl class="dl-horizontal">
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.cDocumento)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.cDocumento)
+                                    </dd>
+                                </dl>
+                            </div>
+                            <div class="col-lg-4">
+                                <dl class="dl-horizontal">
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.cNombre)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.cNombre)
+                                    </dd>
+                                </dl>
+                            </div>
+                            <div class="col-lg-4">
+                                <dl class="dl-horizontal">
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.cApellido)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.cApellido)
+                                    </dd>
+                                </dl>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <dl class="dl-horizontal">
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.cSexo)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.cSexo)
+                                    </dd>
+                                </dl>
+                            </div>
+                            <div class="col-lg-4">
+                                <dl class="dl-horizontal">
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.FechaNacimiento)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.FechaNacimiento)
+                                    </dd>
+                                </dl>
+                            </div>
+                            <div class="col-lg-4">
+                                <dl class="dl-horizontal">
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.Correo)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.Correo)
+                                    </dd>
+                                </dl>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <dl class="dl-horizontal">
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.RegistradoPor)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.RegistradoPor)
+                                    </dd>
+                                </dl>
+                            </div>
+                            <div class="col-lg-4">
+                                <dl class="dl-horizontal">
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.FechaRegistro)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.FechaRegistro)
+                                    </dd>
+                                </dl>
+                            </div>
+                            <div class="col-lg-4">
+                                <dl class="dl-horizontal">
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.provincia)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.provincia)
+                                    </dd>
+                                </dl>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <dl class="dl-horizontal">
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.municipio)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.municipio)
+                                    </dd>
+                                </dl>
+                            </div>
+                            <div class="col-lg-4">
+                                <dl class="dl-horizontal">
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.telefono)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.telefono)
+                                    </dd>
+                                </dl>
+                            </div>
+                            <div class="col-lg-4">
+                                <dl class="dl-horizontal">
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.Cargo)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.Cargo)
+                                    </dd>
+                                </dl>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <dl class="dl-horizontal">
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.Municipio1.MunicipioId)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.Municipio1.MunicipioId)
+                                    </dd>
+                                </dl>
+                            </div>
+                            <div class="col-lg-4">
+                                <dl class="dl-horizontal">
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.Plane.Plan)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.Plane.Plan)
+                                    </dd>
+                                </dl>
+                            </div>
+                            <div class="col-lg-4">
+                                <dl class="dl-horizontal">
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.Provincia1.ProvinciaId)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.Provincia1.ProvinciaId)
+                                    </dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="row align-items-center">
+
+                        <div class="col-12 text-right">
+                            @using (Html.BeginForm())
+                            {
+                                @Html.AntiForgeryToken()
+
+                                <div class="form-actions no-color">
+                                    <input type="submit" value="Eliminar" class="btn btn-danger" />
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>TblPersona</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.cDocumento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cDocumento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cNombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cNombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cApellido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cApellido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cSexo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cSexo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaNacimiento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaNacimiento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Correo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Correo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RegistradoPor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RegistradoPor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaRegistro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaRegistro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.provincia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.provincia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.municipio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.municipio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.telefono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telefono)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cargo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cargo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Municipio1.MunicipioId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Municipio1.MunicipioId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Plane.Plan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Plane.Plan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Provincia1.ProvinciaId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Provincia1.ProvinciaId)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>*@

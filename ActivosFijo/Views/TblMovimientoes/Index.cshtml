@@ -1,0 +1,267 @@
+﻿@model IEnumerable<ActivosFijo.Models.TblActivo>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<div class="row mt-5">
+    <div class="col-xl-12">
+        <div class="card">
+            <div class="card-header border-0">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <h1 class="mb-0">Lista de Activos</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-2">
+    <div class="col-xl-12">
+        <div class="card">
+            <div class="card-header border-0">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <form class="navbar-search navbar-search-light form-inline mr-sm-3" id="navbar-search-main" action="@Url.Action("Index", @ViewContext.RouteData.Values["controller"].ToString())" method="get">
+                            <div class="form-group mb-0">
+                                <div class="input-group input-group-alternative input-group-merge">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-search"></i></span>
+                                    </div>
+                                    <input class="form-control" placeholder="Búscar activo" type="text" value="@(ViewBag.CurrentFilter ?? String.Empty)" name="busqueda" id="busqueda">
+                                </div>
+                            </div>
+                            <button type="button" class="close" data-action="search-close" data-target="#navbar-search-main" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            @*para validar que haya datos en el Model para mostrar los datos en una table*@
+            @if (Model != null)
+            {
+                <div class="table-responsive">
+                    @*Table de informacion*@
+                    <table class="table align-items-center table-flush">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col">
+                                    Acción
+                                </th>
+                                <th scope="col">
+                                    @Html.DisplayNameFor(model => model.First().Id)
+                                </th>
+                                <th scope="col">
+                                    @Html.DisplayNameFor(model => model.First().cDescripcion)
+                                </th>
+                                <th scope="col">
+                                    @Html.DisplayNameFor(model => model.First().cMarca)
+                                </th>
+                                <th scope="col">
+                                    @Html.DisplayNameFor(model => model.First().cModelo)
+                                </th>
+                                <th scope="col">
+                                    @Html.DisplayNameFor(model => model.First().cNoSerial)
+                                </th>
+                                <th scope="col">
+                                    @Html.DisplayNameFor(model => model.First().codigoOrigen)
+                                </th>
+                                <th scope="col">
+                                    @Html.DisplayNameFor(model => model.First().codigoBN)
+                                </th>
+                                <th scope="col">
+                                    @Html.DisplayNameFor(model => model.First().TblCategoria.cDescripcion)
+                                </th>
+                                <th scope="col">
+                                    @Html.DisplayNameFor(model => model.First().TblOrigene.cDescripcion)
+                                </th>
+                                <th scope="col">
+                                    @Html.DisplayNameFor(model => model.First().TblLocacione.cDescripcion)
+                                </th>
+                                <th scope="col">
+                                    @Html.DisplayNameFor(model => model.First().dFechaActivo)
+                                </th>
+                                <th scope="col">
+                                    @Html.DisplayNameFor(model => model.First().cAsignacion)
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model != null)
+                            {
+                                foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            <a href="@Url.Action("AsignarPersona","TblMovimientoes", new { id = item.Id })" title="Asignar a persona">
+                                                <i class="fa fa-code-branch text-success" style="font-size: large"></i>
+                                            </a>
+                                            <a href="@Url.Action("AsignarLocacion","TblMovimientoes", new { id = item.Id })" title="Asignar Locación">
+                                                <i class="ni ni-pin-3 text-info" style="font-size: large"></i>
+                                            </a>
+                                            <a href="@Url.Action("AsignarCategoria","TblMovimientoes", new { id = item.Id })" title="Asignar Categoria">
+                                                <i class="ni ni-tag text-primary mh-100" style="font-size: large"></i>
+                                            </a>
+                                            <a href="@Url.Action("DebajaalActivo","TblMovimientoes", new { id = item.Id })" title="Darle de baja al Activo">
+                                                <i class="fa fa-minus-circle text-danger mh-100" style="font-size: large"></i>
+                                            </a>
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Id)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.cDescripcion)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.cMarca)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.cModelo)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.cNoSerial)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.codigoOrigen)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.codigoBN)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.TblCategoria.cDescripcion)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.TblOrigene.cDescripcion)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.TblLocacione.cDescripcion)
+                                        </td>
+                                        <td>
+                                            @Convert.ToString(string.Format("{0:dd/MM/yyyy}", item.dFechaActivo))
+                                            @*@Html.DisplayFor(modelItem => item.dFechaActivo)*@
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.cAsignacion)
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <div class="row">
+                    <div class="col ml-3">
+                        @*Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber ) of @Model.PageCount
+                        @Html.PagedListPager(Model, page => Url.Action("Index", new { page, currentFilter = ViewBag.CurrentFilter }))*@
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@* Aqui arriba esta un duplicado de los activos *@
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        @*<th>
+            @Html.DisplayNameFor(model => model.nTipo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cDescripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dFechaMovimiento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nMontoMovimiento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dFechaRegistro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cUsuario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdActivo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cAsignacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TblCategoria.cDescripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TblLocacione.cDescripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TblTipoBaja.cDescripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TblTiposActivo.cDescripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TblPersona.cDocumento)
+        </th>*@
+        <th></th>
+    </tr>
+
+    @*@foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nTipo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cDescripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dFechaMovimiento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nMontoMovimiento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dFechaRegistro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cUsuario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdActivo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cAsignacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TblCategoria.cDescripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TblLocacione.cDescripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TblTipoBaja.cDescripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TblTiposActivo.cDescripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TblPersona.cDocumento)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }*@
+
+</table>

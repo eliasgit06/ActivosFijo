@@ -1,0 +1,300 @@
+﻿@model ActivosFijo.Models.TblActivo
+@{
+    ViewBag.Title = "AsignarPersona";
+}
+
+@using (Html.BeginForm(FormMethod.Post))
+{
+    <div class="container-fluid mt-lg-5">
+        <div class="row">
+            <div class="col-xl-12 order-xl-">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row align-items-center">
+                            <div class="col-8">
+                                <h2 class="mb-0">Información de Activo No. <span class="text-info">@Model.Id</span></h2>
+                            </div>
+                            <div class="col-4 text-right">
+                                <a class="nav-link active" href="@Request.UrlReferrer">
+                                    <i class="ni ni-bold-left text-primary"></i>
+                                    <span class="text-primary">Regresar</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h6 class="heading-small text-muted mb-4">INFORMACIÓN DEL ACTIVO</h6>
+                        <div class="pl-lg-4">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <dl class="dl-horizontal">
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.cDescripcion)
+                                        </dt>
+
+                                        <dd>
+                                            <label id="lbDescripcion" name="lbDescripcion">@Model.cDescripcion</label>
+                                            @* @Html.DisplayFor(model => model.cDescripcion)*@
+                                        </dd>
+                                    </dl>
+                                </div>
+                                <div class="col-lg-4">
+                                    <dl class="dl-horizontal">
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.cDetalle)
+                                        </dt>
+
+                                        <dd>
+                                            @Html.DisplayFor(model => model.cDetalle)
+                                        </dd>
+                                    </dl>
+                                </div><div class="col-lg-4">
+                                    <dl class="dl-horizontal">
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.cMarca)
+                                        </dt>
+
+                                        <dd>
+                                            @Html.DisplayFor(model => model.cMarca)
+                                        </dd>
+                                    </dl>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <dl class="dl-horizontal">
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.cModelo)
+                                        </dt>
+
+                                        <dd>
+                                            @Html.DisplayFor(model => model.cModelo)
+                                        </dd>
+                                    </dl>
+                                </div>
+                                <div class="col-lg-4">
+                                    <dl class="dl-horizontal">
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.cNoSerial)
+                                        </dt>
+
+                                        <dd>
+                                            @Html.DisplayFor(model => model.cNoSerial)
+                                        </dd>
+                                    </dl>
+                                </div>
+                                <div class="col-lg-4">
+                                    <dl class="dl-horizontal">
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.TblTiposActivo.cDescripcion)
+                                        </dt>
+
+                                        <dd>
+                                            @Html.DisplayFor(model => model.TblTiposActivo.cDescripcion)
+                                        </dd>
+                                    </dl>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <dl class="dl-horizontal">
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.TblCategoria.cDescripcion)
+                                        </dt>
+
+                                        <dd>
+                                            @Html.DisplayFor(model => model.TblCategoria.cDescripcion)
+                                        </dd>
+                                    </dl>
+                                </div>
+                            </div>
+                        </div>
+                        <h6 class="heading-small text-muted mb-4">DATOS DE CÓDIGO Y UBICACIÓN</h6>
+                        <div class="pl-lg-4">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <dl class="dl-horizontal">
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.TblOrigene.cDescripcion)
+                                        </dt>
+
+                                        <dd>
+                                            @Html.DisplayFor(model => model.TblOrigene.cDescripcion)
+                                        </dd>
+                                    </dl>
+                                </div>
+                                <div class="col-lg-4">
+                                    <dl class="dl-horizontal">
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.codigoOrigen)
+                                        </dt>
+
+                                        <dd>
+                                            @Html.DisplayFor(model => model.codigoOrigen)
+                                        </dd>
+                                    </dl>
+                                </div>
+                                <div class="col-lg-4">
+                                    <dl class="dl-horizontal">
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.codigoBN)
+                                        </dt>
+
+                                        <dd>
+                                            @Html.DisplayFor(model => model.codigoBN)
+                                        </dd>
+                                    </dl>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <dl class="dl-horizontal">
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.TblLocacione.cDescripcion)
+                                        </dt>
+
+                                        <dd>
+                                            @Html.DisplayFor(model => model.TblLocacione.cDescripcion)
+                                        </dd>
+                                    </dl>
+                                </div>
+                            </div>
+                        </div>
+                        <h6 class="heading-small text-muted mb-4">FECHA Y VALOR DE ADQUISICIÓN</h6>
+                        <div class="pl-lg-4">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <dl class="dl-horizontal">
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.dFechaActivo)
+                                        </dt>
+
+                                        <dd>
+                                            @Convert.ToString(string.Format("{0:dd/MM/yyyy}", Model.dFechaActivo))
+                                        </dd>
+                                    </dl>
+                                </div>
+                                <div class="col-lg-4">
+                                    <dl class="dl-horizontal">
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.nValor)
+                                        </dt>
+
+                                        <dd>
+                                            @Html.DisplayFor(model => model.nValor)
+                                        </dd>
+                                    </dl>
+                                </div>
+                                <div class="col-lg-4">
+                                    <dl class="dl-horizontal">
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.nDepreciacion)
+                                        </dt>
+
+                                        <dd>
+                                            @Html.DisplayFor(model => model.nDepreciacion)
+                                        </dd>
+                                    </dl>
+                                </div>
+                                <div class="col-lg-4">
+                                    <dl class="dl-horizontal">
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.nValorLibro)
+                                        </dt>
+
+                                        <dd>
+                                            @Html.DisplayFor(model => model.nValorLibro)
+                                        </dd>
+                                    </dl>
+                                </div>
+                                <div class="col-lg-4">
+                                    <dl class="dl-horizontal">
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.cCuentaContable)
+                                        </dt>
+
+                                        <dd>
+                                            @Html.DisplayFor(model => model.cCuentaContable)
+                                        </dd>
+                                    </dl>
+                                </div>
+                            </div>
+                        </div>
+                        <h6 class="heading-small text-muted mb-4">Asignación y estatus</h6>
+                        <div class="pl-lg-4">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <dl class="dl-horizontal">
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.cEstatus)
+                                        </dt>
+
+                                        <dd>
+                                            @if (Model.cEstatus == 1)
+                                            {
+                                                @Html.Label("Activo")
+                                            }
+                                            else
+                                            {
+                                                @Html.Label("Inactivo")
+                                            }
+                                            @*@Html.DisplayFor(model => model.cEstatus)*@
+                                        </dd>
+                                    </dl>
+                                </div>
+                                <div class="col-lg-4">
+                                    <dl class="dl-horizontal">
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.IdPersona)
+                                        </dt>
+
+                                        <dd>
+                                            @Html.DisplayFor(model => model.cAsignacion)
+                                        </dd>
+                                    </dl>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                            @Html.HiddenFor(model => model.Id)
+                            <input style="display: none" name="usuario" value="@Session["usuario"]" class="form-control" />
+                            <div class="row align-items-center">
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.IdPersona, htmlAttributes: new { @class = "control-label col-md-12" })
+                                        <div class="col-md-12">
+                                            @Html.DropDownList("IdPersona", null, htmlAttributes: new { @class = "form-control", @id = "ddlAsignarPersona" })
+                                            @Html.ValidationMessageFor(model => model.IdPersona, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-12">Fecha de Movimiento</label>
+                                        <div class="col-md-12">
+                                            <input type="date" id="fechamovimiento" name="fechamovimiento" value="@DateTime.Now.Date.ToString("yyyy-MM-dd")" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            @Html.EditorFor(model => model.cAsignacion, new { htmlAttributes = new { @class = "form-control", @id = "txtAsignacion", style = "display: none" } })
+                                            @Html.ValidationMessageFor(model => model.cAsignacion, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 text-right">
+                                    <div class="form-group">
+                                        <input type="submit" id="createsubmit" value="Guardar" class="btn btn-success" style="display: none" />
+                                        <button id="tratar" class="btn btn-success"><i class="fa fa-code-branch"></i> Asignar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

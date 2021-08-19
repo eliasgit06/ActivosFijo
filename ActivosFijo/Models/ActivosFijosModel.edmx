@@ -1,0 +1,1026 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ActivosFijosModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Municipio">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="MunicipioId" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="ProvinciaId" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Nombre2" Type="char" MaxLength="100" />
+          <Property Name="Metabk" Type="int" />
+          <Property Name="Meta" Type="int" />
+          <Property Name="IdProvincia" Type="int" />
+        </EntityType>
+        <EntityType Name="Planes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Plan" Type="char" MaxLength="5" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="100" />
+          <Property Name="RegistradoPor" Type="nvarchar" MaxLength="30" />
+          <Property Name="FechaRegistro" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Provincia">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="ProvinciaId" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Region" Type="varchar" MaxLength="50" />
+          <Property Name="enlace" Type="char" MaxLength="4" />
+          <Property Name="Meta" Type="int" />
+          <Property Name="Latitud" Type="float" />
+          <Property Name="Longitud" Type="float" />
+          <Property Name="priorizado" Type="bit" />
+        </EntityType>
+        <EntityType Name="TblActivo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cDescripcion" Type="varchar" MaxLength="100" />
+          <Property Name="cDetalle" Type="varchar" MaxLength="250" />
+          <Property Name="IdOrigen" Type="int" />
+          <Property Name="IdCategoria" Type="int" />
+          <Property Name="IdLocacion" Type="int" />
+          <Property Name="IdTipoActivo" Type="int" />
+          <Property Name="nValor" Type="float" />
+          <Property Name="nDepreciacion" Type="float" />
+          <Property Name="nValorLibro" Type="float" />
+          <Property Name="cEstatus" Type="int" />
+          <Property Name="dFechaActivo" Type="datetime" />
+          <Property Name="cCuentaContable" Type="varchar" MaxLength="50" />
+          <Property Name="cAsignacion" Type="varchar" MaxLength="100" />
+          <Property Name="dfechaRegistro" Type="datetime" />
+          <Property Name="cUsuario" Type="varchar" MaxLength="50" />
+          <Property Name="cMarca" Type="varchar" MaxLength="200" />
+          <Property Name="cModelo" Type="varchar" MaxLength="200" />
+          <Property Name="cNoSerial" Type="varchar" MaxLength="50" />
+          <Property Name="codigoOrigen" Type="nvarchar" MaxLength="10" />
+          <Property Name="codigoBN" Type="varchar" MaxLength="20" />
+          <Property Name="CodigoMINPRE" Type="varchar" MaxLength="20" />
+          <Property Name="CodigoMINERD" Type="varchar" MaxLength="20" />
+          <Property Name="CodigoDIGEPEP" Type="int" />
+          <Property Name="FechaActualizacion" Type="datetime" />
+          <Property Name="ActualizadoPor" Type="nvarchar" MaxLength="30" />
+          <Property Name="IdPersona" Type="int" />
+        </EntityType>
+        <EntityType Name="TblCategorias">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cDescripcion" Type="varchar" MaxLength="100" />
+          <Property Name="cEstatus" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="TblLocaciones">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cDescripcion" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="TblMovimientos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nTipo" Type="int" />
+          <Property Name="cDescripcion" Type="varchar" MaxLength="200" />
+          <Property Name="dFechaMovimiento" Type="datetime" />
+          <Property Name="nMontoMovimiento" Type="float" />
+          <Property Name="dFechaRegistro" Type="datetime" />
+          <Property Name="cUsuario" Type="varchar" MaxLength="50" />
+          <Property Name="IdActivo" Type="int" />
+          <Property Name="cAsignacion" Type="varchar" MaxLength="100" />
+          <Property Name="IdLocacion" Type="int" />
+          <Property Name="IdTipoActivo" Type="int" />
+          <Property Name="IdTipoBaja" Type="int" />
+          <Property Name="IdCategoria" Type="int" />
+          <Property Name="IdPersona" Type="int" />
+        </EntityType>
+        <EntityType Name="TblOrigenes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cDescripcion" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="TblPersona">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cDocumento" Type="nvarchar" MaxLength="13" />
+          <Property Name="cNombre" Type="nvarchar" MaxLength="50" />
+          <Property Name="cApellido" Type="varchar" MaxLength="50" />
+          <Property Name="cSexo" Type="nvarchar" MaxLength="1" />
+          <Property Name="FechaNacimiento" Type="datetime" />
+          <Property Name="Correo" Type="nvarchar" MaxLength="100" />
+          <Property Name="IdPlan" Type="int" />
+          <Property Name="RegistradoPor" Type="nvarchar" MaxLength="30" />
+          <Property Name="FechaRegistro" Type="datetime" />
+          <Property Name="provinciaid" Type="int" />
+          <Property Name="provincia" Type="nvarchar" MaxLength="100" />
+          <Property Name="municipioid" Type="int" />
+          <Property Name="municipio" Type="nvarchar" MaxLength="100" />
+          <Property Name="telefono" Type="nvarchar" MaxLength="20" />
+          <Property Name="Cargo" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="TblTipoBaja">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cDescripcion" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TblTiposActivos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cDescripcion" Type="varchar" MaxLength="100" />
+          <Property Name="nTasaDepreciacion" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="TblUsuarios">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cUsuario" Type="varchar" MaxLength="50" />
+          <Property Name="cClave" Type="varchar" MaxLength="50" />
+          <Property Name="cNombre" Type="varchar" MaxLength="100" />
+          <Property Name="rol" Type="nvarchar" MaxLength="15" />
+        </EntityType>
+        <Association Name="FK_TblActivo_TblCategorias">
+          <End Role="TblCategorias" Type="Self.TblCategorias" Multiplicity="0..1" />
+          <End Role="TblActivo" Type="Self.TblActivo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCategorias">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TblActivo">
+              <PropertyRef Name="IdCategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblActivo_TblLocaciones">
+          <End Role="TblLocaciones" Type="Self.TblLocaciones" Multiplicity="0..1" />
+          <End Role="TblActivo" Type="Self.TblActivo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblLocaciones">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TblActivo">
+              <PropertyRef Name="IdLocacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblActivo_TblOrigenes">
+          <End Role="TblOrigenes" Type="Self.TblOrigenes" Multiplicity="0..1" />
+          <End Role="TblActivo" Type="Self.TblActivo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblOrigenes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TblActivo">
+              <PropertyRef Name="IdOrigen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblActivo_TblTiposActivos">
+          <End Role="TblTiposActivos" Type="Self.TblTiposActivos" Multiplicity="0..1" />
+          <End Role="TblActivo" Type="Self.TblActivo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblTiposActivos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TblActivo">
+              <PropertyRef Name="IdTipoActivo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblMovimientos_TblTipoBaja">
+          <End Role="TblTipoBaja" Type="Self.TblTipoBaja" Multiplicity="0..1" />
+          <End Role="TblMovimientos" Type="Self.TblMovimientos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblTipoBaja">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TblMovimientos">
+              <PropertyRef Name="IdTipoBaja" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Movimiento_Categoria">
+          <End Role="TblCategorias" Type="Self.TblCategorias" Multiplicity="0..1" />
+          <End Role="TblMovimientos" Type="Self.TblMovimientos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCategorias">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TblMovimientos">
+              <PropertyRef Name="IdCategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Movimiento_Locacion">
+          <End Role="TblLocaciones" Type="Self.TblLocaciones" Multiplicity="0..1" />
+          <End Role="TblMovimientos" Type="Self.TblMovimientos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblLocaciones">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TblMovimientos">
+              <PropertyRef Name="IdLocacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Movimiento_TipoActivo">
+          <End Role="TblTiposActivos" Type="Self.TblTiposActivos" Multiplicity="0..1" />
+          <End Role="TblMovimientos" Type="Self.TblMovimientos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblTiposActivos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TblMovimientos">
+              <PropertyRef Name="IdTipoActivo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Municipio_fk">
+          <End Role="Provincia" Type="Self.Provincia" Multiplicity="0..1" />
+          <End Role="Municipio" Type="Self.Municipio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Provincia">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Municipio">
+              <PropertyRef Name="IdProvincia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TblActivo_fk">
+          <End Role="TblPersona" Type="Self.TblPersona" Multiplicity="0..1" />
+          <End Role="TblActivo" Type="Self.TblActivo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblPersona">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TblActivo">
+              <PropertyRef Name="IdPersona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TblMovimientos_fk">
+          <End Role="TblPersona" Type="Self.TblPersona" Multiplicity="0..1" />
+          <End Role="TblMovimientos" Type="Self.TblMovimientos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblPersona">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TblMovimientos">
+              <PropertyRef Name="IdPersona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TblPersona_fk">
+          <End Role="Provincia" Type="Self.Provincia" Multiplicity="0..1" />
+          <End Role="TblPersona" Type="Self.TblPersona" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Provincia">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TblPersona">
+              <PropertyRef Name="provinciaid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TblPersona_fk2">
+          <End Role="Municipio" Type="Self.Municipio" Multiplicity="0..1" />
+          <End Role="TblPersona" Type="Self.TblPersona" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Municipio">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TblPersona">
+              <PropertyRef Name="municipioid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TblPersona_plan">
+          <End Role="Planes" Type="Self.Planes" Multiplicity="0..1" />
+          <End Role="TblPersona" Type="Self.TblPersona" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Planes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TblPersona">
+              <PropertyRef Name="IdPlan" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ActivosFijosModelStoreContainer">
+          <EntitySet Name="Municipio" EntityType="Self.Municipio" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Planes" EntityType="Self.Planes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Provincia" EntityType="Self.Provincia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblActivo" EntityType="Self.TblActivo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblCategorias" EntityType="Self.TblCategorias" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblLocaciones" EntityType="Self.TblLocaciones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblMovimientos" EntityType="Self.TblMovimientos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblOrigenes" EntityType="Self.TblOrigenes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblPersona" EntityType="Self.TblPersona" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblTipoBaja" EntityType="Self.TblTipoBaja" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblTiposActivos" EntityType="Self.TblTiposActivos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblUsuarios" EntityType="Self.TblUsuarios" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_TblActivo_TblCategorias" Association="Self.FK_TblActivo_TblCategorias">
+            <End Role="TblCategorias" EntitySet="TblCategorias" />
+            <End Role="TblActivo" EntitySet="TblActivo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblActivo_TblLocaciones" Association="Self.FK_TblActivo_TblLocaciones">
+            <End Role="TblLocaciones" EntitySet="TblLocaciones" />
+            <End Role="TblActivo" EntitySet="TblActivo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblActivo_TblOrigenes" Association="Self.FK_TblActivo_TblOrigenes">
+            <End Role="TblOrigenes" EntitySet="TblOrigenes" />
+            <End Role="TblActivo" EntitySet="TblActivo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblActivo_TblTiposActivos" Association="Self.FK_TblActivo_TblTiposActivos">
+            <End Role="TblTiposActivos" EntitySet="TblTiposActivos" />
+            <End Role="TblActivo" EntitySet="TblActivo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblMovimientos_TblTipoBaja" Association="Self.FK_TblMovimientos_TblTipoBaja">
+            <End Role="TblTipoBaja" EntitySet="TblTipoBaja" />
+            <End Role="TblMovimientos" EntitySet="TblMovimientos" />
+          </AssociationSet>
+          <AssociationSet Name="Movimiento_Categoria" Association="Self.Movimiento_Categoria">
+            <End Role="TblCategorias" EntitySet="TblCategorias" />
+            <End Role="TblMovimientos" EntitySet="TblMovimientos" />
+          </AssociationSet>
+          <AssociationSet Name="Movimiento_Locacion" Association="Self.Movimiento_Locacion">
+            <End Role="TblLocaciones" EntitySet="TblLocaciones" />
+            <End Role="TblMovimientos" EntitySet="TblMovimientos" />
+          </AssociationSet>
+          <AssociationSet Name="Movimiento_TipoActivo" Association="Self.Movimiento_TipoActivo">
+            <End Role="TblTiposActivos" EntitySet="TblTiposActivos" />
+            <End Role="TblMovimientos" EntitySet="TblMovimientos" />
+          </AssociationSet>
+          <AssociationSet Name="Municipio_fk" Association="Self.Municipio_fk">
+            <End Role="Provincia" EntitySet="Provincia" />
+            <End Role="Municipio" EntitySet="Municipio" />
+          </AssociationSet>
+          <AssociationSet Name="TblActivo_fk" Association="Self.TblActivo_fk">
+            <End Role="TblPersona" EntitySet="TblPersona" />
+            <End Role="TblActivo" EntitySet="TblActivo" />
+          </AssociationSet>
+          <AssociationSet Name="TblMovimientos_fk" Association="Self.TblMovimientos_fk">
+            <End Role="TblPersona" EntitySet="TblPersona" />
+            <End Role="TblMovimientos" EntitySet="TblMovimientos" />
+          </AssociationSet>
+          <AssociationSet Name="TblPersona_fk" Association="Self.TblPersona_fk">
+            <End Role="Provincia" EntitySet="Provincia" />
+            <End Role="TblPersona" EntitySet="TblPersona" />
+          </AssociationSet>
+          <AssociationSet Name="TblPersona_fk2" Association="Self.TblPersona_fk2">
+            <End Role="Municipio" EntitySet="Municipio" />
+            <End Role="TblPersona" EntitySet="TblPersona" />
+          </AssociationSet>
+          <AssociationSet Name="TblPersona_plan" Association="Self.TblPersona_plan">
+            <End Role="Planes" EntitySet="Planes" />
+            <End Role="TblPersona" EntitySet="TblPersona" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ActivosFijosModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Municipio">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="MunicipioId" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ProvinciaId" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Nombre2" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+          <Property Name="Metabk" Type="Int32" />
+          <Property Name="Meta" Type="Int32" />
+          <Property Name="IdProvincia" Type="Int32" />
+          <NavigationProperty Name="Provincia" Relationship="Self.Municipio_fk" FromRole="Municipio" ToRole="Provincia" />
+          <NavigationProperty Name="TblPersonas" Relationship="Self.TblPersona_fk2" FromRole="Municipio" ToRole="TblPersona" />
+        </EntityType>
+        <EntityType Name="Plane">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Plan" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="RegistradoPor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="TblPersonas" Relationship="Self.TblPersona_plan" FromRole="Planes" ToRole="TblPersona" />
+        </EntityType>
+        <EntityType Name="Provincia">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="ProvinciaId" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Region" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="enlace" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+          <Property Name="Meta" Type="Int32" />
+          <Property Name="Latitud" Type="Double" />
+          <Property Name="Longitud" Type="Double" />
+          <Property Name="priorizado" Type="Boolean" />
+          <NavigationProperty Name="Municipios" Relationship="Self.Municipio_fk" FromRole="Provincia" ToRole="Municipio" />
+          <NavigationProperty Name="TblPersonas" Relationship="Self.TblPersona_fk" FromRole="Provincia" ToRole="TblPersona" />
+        </EntityType>
+        <EntityType Name="TblActivo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cDescripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="cDetalle" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="IdOrigen" Type="Int32" />
+          <Property Name="IdCategoria" Type="Int32" />
+          <Property Name="IdLocacion" Type="Int32" />
+          <Property Name="IdTipoActivo" Type="Int32" />
+          <Property Name="nValor" Type="Double" />
+          <Property Name="nDepreciacion" Type="Double" />
+          <Property Name="nValorLibro" Type="Double" />
+          <Property Name="cEstatus" Type="Int32" />
+          <Property Name="dFechaActivo" Type="DateTime" Precision="3" />
+          <Property Name="cCuentaContable" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cAsignacion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="dfechaRegistro" Type="DateTime" Precision="3" />
+          <Property Name="cUsuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cMarca" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="cModelo" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="cNoSerial" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="codigoOrigen" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="codigoBN" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CodigoMINPRE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CodigoMINERD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CodigoDIGEPEP" Type="Int32" />
+          <Property Name="FechaActualizacion" Type="DateTime" Precision="3" />
+          <Property Name="ActualizadoPor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="IdPersona" Type="Int32" />
+          <NavigationProperty Name="TblCategoria" Relationship="Self.FK_TblActivo_TblCategorias" FromRole="TblActivo" ToRole="TblCategorias" />
+          <NavigationProperty Name="TblLocacione" Relationship="Self.FK_TblActivo_TblLocaciones" FromRole="TblActivo" ToRole="TblLocaciones" />
+          <NavigationProperty Name="TblOrigene" Relationship="Self.FK_TblActivo_TblOrigenes" FromRole="TblActivo" ToRole="TblOrigenes" />
+          <NavigationProperty Name="TblTiposActivo" Relationship="Self.FK_TblActivo_TblTiposActivos" FromRole="TblActivo" ToRole="TblTiposActivos" />
+          <NavigationProperty Name="TblPersona" Relationship="Self.TblActivo_fk" FromRole="TblActivo" ToRole="TblPersona" />
+        </EntityType>
+        <EntityType Name="TblCategoria">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cDescripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="cEstatus" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="TblActivoes" Relationship="Self.FK_TblActivo_TblCategorias" FromRole="TblCategorias" ToRole="TblActivo" />
+          <NavigationProperty Name="TblMovimientos" Relationship="Self.Movimiento_Categoria" FromRole="TblCategorias" ToRole="TblMovimientos" />
+        </EntityType>
+        <EntityType Name="TblLocacione">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cDescripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TblActivoes" Relationship="Self.FK_TblActivo_TblLocaciones" FromRole="TblLocaciones" ToRole="TblActivo" />
+          <NavigationProperty Name="TblMovimientos" Relationship="Self.Movimiento_Locacion" FromRole="TblLocaciones" ToRole="TblMovimientos" />
+        </EntityType>
+        <EntityType Name="TblMovimiento">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nTipo" Type="Int32" />
+          <Property Name="cDescripcion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="dFechaMovimiento" Type="DateTime" Precision="3" />
+          <Property Name="nMontoMovimiento" Type="Double" />
+          <Property Name="dFechaRegistro" Type="DateTime" Precision="3" />
+          <Property Name="cUsuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IdActivo" Type="Int32" />
+          <Property Name="cAsignacion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IdLocacion" Type="Int32" />
+          <Property Name="IdTipoActivo" Type="Int32" />
+          <Property Name="IdTipoBaja" Type="Int32" />
+          <Property Name="IdCategoria" Type="Int32" />
+          <Property Name="IdPersona" Type="Int32" />
+          <NavigationProperty Name="TblCategoria" Relationship="Self.Movimiento_Categoria" FromRole="TblMovimientos" ToRole="TblCategorias" />
+          <NavigationProperty Name="TblLocacione" Relationship="Self.Movimiento_Locacion" FromRole="TblMovimientos" ToRole="TblLocaciones" />
+          <NavigationProperty Name="TblTipoBaja" Relationship="Self.FK_TblMovimientos_TblTipoBaja" FromRole="TblMovimientos" ToRole="TblTipoBaja" />
+          <NavigationProperty Name="TblTiposActivo" Relationship="Self.Movimiento_TipoActivo" FromRole="TblMovimientos" ToRole="TblTiposActivos" />
+          <NavigationProperty Name="TblPersona" Relationship="Self.TblMovimientos_fk" FromRole="TblMovimientos" ToRole="TblPersona" />
+        </EntityType>
+        <EntityType Name="TblOrigene">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cDescripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TblActivoes" Relationship="Self.FK_TblActivo_TblOrigenes" FromRole="TblOrigenes" ToRole="TblActivo" />
+        </EntityType>
+        <EntityType Name="TblPersona">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cDocumento" Type="String" MaxLength="13" FixedLength="false" Unicode="true" />
+          <Property Name="cNombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cApellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cSexo" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="FechaNacimiento" Type="DateTime" Precision="3" />
+          <Property Name="Correo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IdPlan" Type="Int32" />
+          <Property Name="RegistradoPor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+          <Property Name="provinciaid" Type="Int32" />
+          <Property Name="provincia" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="municipioid" Type="Int32" />
+          <Property Name="municipio" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="telefono" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Cargo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Municipio1" Relationship="Self.TblPersona_fk2" FromRole="TblPersona" ToRole="Municipio" />
+          <NavigationProperty Name="Plane" Relationship="Self.TblPersona_plan" FromRole="TblPersona" ToRole="Planes" />
+          <NavigationProperty Name="Provincia1" Relationship="Self.TblPersona_fk" FromRole="TblPersona" ToRole="Provincia" />
+          <NavigationProperty Name="TblActivoes" Relationship="Self.TblActivo_fk" FromRole="TblPersona" ToRole="TblActivo" />
+          <NavigationProperty Name="TblMovimientos" Relationship="Self.TblMovimientos_fk" FromRole="TblPersona" ToRole="TblMovimientos" />
+        </EntityType>
+        <EntityType Name="TblTipoBaja">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cDescripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TblMovimientos" Relationship="Self.FK_TblMovimientos_TblTipoBaja" FromRole="TblTipoBaja" ToRole="TblMovimientos" />
+        </EntityType>
+        <EntityType Name="TblTiposActivo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cDescripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="nTasaDepreciacion" Type="Decimal" Precision="18" Scale="2" />
+          <NavigationProperty Name="TblActivoes" Relationship="Self.FK_TblActivo_TblTiposActivos" FromRole="TblTiposActivos" ToRole="TblActivo" />
+          <NavigationProperty Name="TblMovimientos" Relationship="Self.Movimiento_TipoActivo" FromRole="TblTiposActivos" ToRole="TblMovimientos" />
+        </EntityType>
+        <EntityType Name="TblUsuario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cUsuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cClave" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cNombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="rol" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="Municipio_fk">
+          <End Role="Provincia" Type="Self.Provincia" Multiplicity="0..1" />
+          <End Role="Municipio" Type="Self.Municipio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Provincia">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Municipio">
+              <PropertyRef Name="IdProvincia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TblPersona_fk2">
+          <End Role="Municipio" Type="Self.Municipio" Multiplicity="0..1" />
+          <End Role="TblPersona" Type="Self.TblPersona" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Municipio">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TblPersona">
+              <PropertyRef Name="municipioid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TblPersona_plan">
+          <End Role="Planes" Type="Self.Plane" Multiplicity="0..1" />
+          <End Role="TblPersona" Type="Self.TblPersona" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Planes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TblPersona">
+              <PropertyRef Name="IdPlan" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TblPersona_fk">
+          <End Role="Provincia" Type="Self.Provincia" Multiplicity="0..1" />
+          <End Role="TblPersona" Type="Self.TblPersona" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Provincia">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TblPersona">
+              <PropertyRef Name="provinciaid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblActivo_TblCategorias">
+          <End Role="TblCategorias" Type="Self.TblCategoria" Multiplicity="0..1" />
+          <End Role="TblActivo" Type="Self.TblActivo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCategorias">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TblActivo">
+              <PropertyRef Name="IdCategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblActivo_TblLocaciones">
+          <End Role="TblLocaciones" Type="Self.TblLocacione" Multiplicity="0..1" />
+          <End Role="TblActivo" Type="Self.TblActivo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblLocaciones">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TblActivo">
+              <PropertyRef Name="IdLocacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblActivo_TblOrigenes">
+          <End Role="TblOrigenes" Type="Self.TblOrigene" Multiplicity="0..1" />
+          <End Role="TblActivo" Type="Self.TblActivo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblOrigenes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TblActivo">
+              <PropertyRef Name="IdOrigen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblActivo_TblTiposActivos">
+          <End Role="TblTiposActivos" Type="Self.TblTiposActivo" Multiplicity="0..1" />
+          <End Role="TblActivo" Type="Self.TblActivo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblTiposActivos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TblActivo">
+              <PropertyRef Name="IdTipoActivo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TblActivo_fk">
+          <End Role="TblPersona" Type="Self.TblPersona" Multiplicity="0..1" />
+          <End Role="TblActivo" Type="Self.TblActivo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblPersona">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TblActivo">
+              <PropertyRef Name="IdPersona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Movimiento_Categoria">
+          <End Role="TblCategorias" Type="Self.TblCategoria" Multiplicity="0..1" />
+          <End Role="TblMovimientos" Type="Self.TblMovimiento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCategorias">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TblMovimientos">
+              <PropertyRef Name="IdCategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Movimiento_Locacion">
+          <End Role="TblLocaciones" Type="Self.TblLocacione" Multiplicity="0..1" />
+          <End Role="TblMovimientos" Type="Self.TblMovimiento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblLocaciones">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TblMovimientos">
+              <PropertyRef Name="IdLocacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblMovimientos_TblTipoBaja">
+          <End Role="TblTipoBaja" Type="Self.TblTipoBaja" Multiplicity="0..1" />
+          <End Role="TblMovimientos" Type="Self.TblMovimiento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblTipoBaja">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TblMovimientos">
+              <PropertyRef Name="IdTipoBaja" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Movimiento_TipoActivo">
+          <End Role="TblTiposActivos" Type="Self.TblTiposActivo" Multiplicity="0..1" />
+          <End Role="TblMovimientos" Type="Self.TblMovimiento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblTiposActivos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TblMovimientos">
+              <PropertyRef Name="IdTipoActivo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TblMovimientos_fk">
+          <End Role="TblPersona" Type="Self.TblPersona" Multiplicity="0..1" />
+          <End Role="TblMovimientos" Type="Self.TblMovimiento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblPersona">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TblMovimientos">
+              <PropertyRef Name="IdPersona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ActivosFijosEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Municipios" EntityType="Self.Municipio" />
+          <EntitySet Name="Planes" EntityType="Self.Plane" />
+          <EntitySet Name="Provincias" EntityType="Self.Provincia" />
+          <EntitySet Name="TblActivoes" EntityType="Self.TblActivo" />
+          <EntitySet Name="TblCategorias" EntityType="Self.TblCategoria" />
+          <EntitySet Name="TblLocaciones" EntityType="Self.TblLocacione" />
+          <EntitySet Name="TblMovimientos" EntityType="Self.TblMovimiento" />
+          <EntitySet Name="TblOrigenes" EntityType="Self.TblOrigene" />
+          <EntitySet Name="TblPersonas" EntityType="Self.TblPersona" />
+          <EntitySet Name="TblTipoBajas" EntityType="Self.TblTipoBaja" />
+          <EntitySet Name="TblTiposActivos" EntityType="Self.TblTiposActivo" />
+          <EntitySet Name="TblUsuarios" EntityType="Self.TblUsuario" />
+          <AssociationSet Name="Municipio_fk" Association="Self.Municipio_fk">
+            <End Role="Provincia" EntitySet="Provincias" />
+            <End Role="Municipio" EntitySet="Municipios" />
+          </AssociationSet>
+          <AssociationSet Name="TblPersona_fk2" Association="Self.TblPersona_fk2">
+            <End Role="Municipio" EntitySet="Municipios" />
+            <End Role="TblPersona" EntitySet="TblPersonas" />
+          </AssociationSet>
+          <AssociationSet Name="TblPersona_plan" Association="Self.TblPersona_plan">
+            <End Role="Planes" EntitySet="Planes" />
+            <End Role="TblPersona" EntitySet="TblPersonas" />
+          </AssociationSet>
+          <AssociationSet Name="TblPersona_fk" Association="Self.TblPersona_fk">
+            <End Role="Provincia" EntitySet="Provincias" />
+            <End Role="TblPersona" EntitySet="TblPersonas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblActivo_TblCategorias" Association="Self.FK_TblActivo_TblCategorias">
+            <End Role="TblCategorias" EntitySet="TblCategorias" />
+            <End Role="TblActivo" EntitySet="TblActivoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblActivo_TblLocaciones" Association="Self.FK_TblActivo_TblLocaciones">
+            <End Role="TblLocaciones" EntitySet="TblLocaciones" />
+            <End Role="TblActivo" EntitySet="TblActivoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblActivo_TblOrigenes" Association="Self.FK_TblActivo_TblOrigenes">
+            <End Role="TblOrigenes" EntitySet="TblOrigenes" />
+            <End Role="TblActivo" EntitySet="TblActivoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblActivo_TblTiposActivos" Association="Self.FK_TblActivo_TblTiposActivos">
+            <End Role="TblTiposActivos" EntitySet="TblTiposActivos" />
+            <End Role="TblActivo" EntitySet="TblActivoes" />
+          </AssociationSet>
+          <AssociationSet Name="TblActivo_fk" Association="Self.TblActivo_fk">
+            <End Role="TblPersona" EntitySet="TblPersonas" />
+            <End Role="TblActivo" EntitySet="TblActivoes" />
+          </AssociationSet>
+          <AssociationSet Name="Movimiento_Categoria" Association="Self.Movimiento_Categoria">
+            <End Role="TblCategorias" EntitySet="TblCategorias" />
+            <End Role="TblMovimientos" EntitySet="TblMovimientos" />
+          </AssociationSet>
+          <AssociationSet Name="Movimiento_Locacion" Association="Self.Movimiento_Locacion">
+            <End Role="TblLocaciones" EntitySet="TblLocaciones" />
+            <End Role="TblMovimientos" EntitySet="TblMovimientos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblMovimientos_TblTipoBaja" Association="Self.FK_TblMovimientos_TblTipoBaja">
+            <End Role="TblTipoBaja" EntitySet="TblTipoBajas" />
+            <End Role="TblMovimientos" EntitySet="TblMovimientos" />
+          </AssociationSet>
+          <AssociationSet Name="Movimiento_TipoActivo" Association="Self.Movimiento_TipoActivo">
+            <End Role="TblTiposActivos" EntitySet="TblTiposActivos" />
+            <End Role="TblMovimientos" EntitySet="TblMovimientos" />
+          </AssociationSet>
+          <AssociationSet Name="TblMovimientos_fk" Association="Self.TblMovimientos_fk">
+            <End Role="TblPersona" EntitySet="TblPersonas" />
+            <End Role="TblMovimientos" EntitySet="TblMovimientos" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ActivosFijosModelStoreContainer" CdmEntityContainer="ActivosFijosEntities">
+          <EntitySetMapping Name="Municipios">
+            <EntityTypeMapping TypeName="ActivosFijosModel.Municipio">
+              <MappingFragment StoreEntitySet="Municipio">
+                <ScalarProperty Name="MunicipioId" ColumnName="MunicipioId" />
+                <ScalarProperty Name="ProvinciaId" ColumnName="ProvinciaId" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre2" ColumnName="Nombre2" />
+                <ScalarProperty Name="Metabk" ColumnName="Metabk" />
+                <ScalarProperty Name="Meta" ColumnName="Meta" />
+                <ScalarProperty Name="IdProvincia" ColumnName="IdProvincia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Planes">
+            <EntityTypeMapping TypeName="ActivosFijosModel.Plane">
+              <MappingFragment StoreEntitySet="Planes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Plan" ColumnName="Plan" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="RegistradoPor" ColumnName="RegistradoPor" />
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Provincias">
+            <EntityTypeMapping TypeName="ActivosFijosModel.Provincia">
+              <MappingFragment StoreEntitySet="Provincia">
+                <ScalarProperty Name="ProvinciaId" ColumnName="ProvinciaId" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="enlace" ColumnName="enlace" />
+                <ScalarProperty Name="Meta" ColumnName="Meta" />
+                <ScalarProperty Name="Latitud" ColumnName="Latitud" />
+                <ScalarProperty Name="Longitud" ColumnName="Longitud" />
+                <ScalarProperty Name="priorizado" ColumnName="priorizado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblActivoes">
+            <EntityTypeMapping TypeName="ActivosFijosModel.TblActivo">
+              <MappingFragment StoreEntitySet="TblActivo">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="cDescripcion" ColumnName="cDescripcion" />
+                <ScalarProperty Name="cDetalle" ColumnName="cDetalle" />
+                <ScalarProperty Name="IdOrigen" ColumnName="IdOrigen" />
+                <ScalarProperty Name="IdCategoria" ColumnName="IdCategoria" />
+                <ScalarProperty Name="IdLocacion" ColumnName="IdLocacion" />
+                <ScalarProperty Name="IdTipoActivo" ColumnName="IdTipoActivo" />
+                <ScalarProperty Name="nValor" ColumnName="nValor" />
+                <ScalarProperty Name="nDepreciacion" ColumnName="nDepreciacion" />
+                <ScalarProperty Name="nValorLibro" ColumnName="nValorLibro" />
+                <ScalarProperty Name="cEstatus" ColumnName="cEstatus" />
+                <ScalarProperty Name="dFechaActivo" ColumnName="dFechaActivo" />
+                <ScalarProperty Name="cCuentaContable" ColumnName="cCuentaContable" />
+                <ScalarProperty Name="cAsignacion" ColumnName="cAsignacion" />
+                <ScalarProperty Name="dfechaRegistro" ColumnName="dfechaRegistro" />
+                <ScalarProperty Name="cUsuario" ColumnName="cUsuario" />
+                <ScalarProperty Name="cMarca" ColumnName="cMarca" />
+                <ScalarProperty Name="cModelo" ColumnName="cModelo" />
+                <ScalarProperty Name="cNoSerial" ColumnName="cNoSerial" />
+                <ScalarProperty Name="codigoOrigen" ColumnName="codigoOrigen" />
+                <ScalarProperty Name="codigoBN" ColumnName="codigoBN" />
+                <ScalarProperty Name="CodigoMINPRE" ColumnName="CodigoMINPRE" />
+                <ScalarProperty Name="CodigoMINERD" ColumnName="CodigoMINERD" />
+                <ScalarProperty Name="CodigoDIGEPEP" ColumnName="CodigoDIGEPEP" />
+                <ScalarProperty Name="FechaActualizacion" ColumnName="FechaActualizacion" />
+                <ScalarProperty Name="ActualizadoPor" ColumnName="ActualizadoPor" />
+                <ScalarProperty Name="IdPersona" ColumnName="IdPersona" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblCategorias">
+            <EntityTypeMapping TypeName="ActivosFijosModel.TblCategoria">
+              <MappingFragment StoreEntitySet="TblCategorias">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="cDescripcion" ColumnName="cDescripcion" />
+                <ScalarProperty Name="cEstatus" ColumnName="cEstatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblLocaciones">
+            <EntityTypeMapping TypeName="ActivosFijosModel.TblLocacione">
+              <MappingFragment StoreEntitySet="TblLocaciones">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="cDescripcion" ColumnName="cDescripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblMovimientos">
+            <EntityTypeMapping TypeName="ActivosFijosModel.TblMovimiento">
+              <MappingFragment StoreEntitySet="TblMovimientos">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="nTipo" ColumnName="nTipo" />
+                <ScalarProperty Name="cDescripcion" ColumnName="cDescripcion" />
+                <ScalarProperty Name="dFechaMovimiento" ColumnName="dFechaMovimiento" />
+                <ScalarProperty Name="nMontoMovimiento" ColumnName="nMontoMovimiento" />
+                <ScalarProperty Name="dFechaRegistro" ColumnName="dFechaRegistro" />
+                <ScalarProperty Name="cUsuario" ColumnName="cUsuario" />
+                <ScalarProperty Name="IdActivo" ColumnName="IdActivo" />
+                <ScalarProperty Name="cAsignacion" ColumnName="cAsignacion" />
+                <ScalarProperty Name="IdLocacion" ColumnName="IdLocacion" />
+                <ScalarProperty Name="IdTipoActivo" ColumnName="IdTipoActivo" />
+                <ScalarProperty Name="IdTipoBaja" ColumnName="IdTipoBaja" />
+                <ScalarProperty Name="IdCategoria" ColumnName="IdCategoria" />
+                <ScalarProperty Name="IdPersona" ColumnName="IdPersona" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblOrigenes">
+            <EntityTypeMapping TypeName="ActivosFijosModel.TblOrigene">
+              <MappingFragment StoreEntitySet="TblOrigenes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="cDescripcion" ColumnName="cDescripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblPersonas">
+            <EntityTypeMapping TypeName="ActivosFijosModel.TblPersona">
+              <MappingFragment StoreEntitySet="TblPersona">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="cDocumento" ColumnName="cDocumento" />
+                <ScalarProperty Name="cNombre" ColumnName="cNombre" />
+                <ScalarProperty Name="cApellido" ColumnName="cApellido" />
+                <ScalarProperty Name="cSexo" ColumnName="cSexo" />
+                <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="IdPlan" ColumnName="IdPlan" />
+                <ScalarProperty Name="RegistradoPor" ColumnName="RegistradoPor" />
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+                <ScalarProperty Name="provinciaid" ColumnName="provinciaid" />
+                <ScalarProperty Name="provincia" ColumnName="provincia" />
+                <ScalarProperty Name="municipioid" ColumnName="municipioid" />
+                <ScalarProperty Name="municipio" ColumnName="municipio" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="Cargo" ColumnName="Cargo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblTipoBajas">
+            <EntityTypeMapping TypeName="ActivosFijosModel.TblTipoBaja">
+              <MappingFragment StoreEntitySet="TblTipoBaja">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="cDescripcion" ColumnName="cDescripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblTiposActivos">
+            <EntityTypeMapping TypeName="ActivosFijosModel.TblTiposActivo">
+              <MappingFragment StoreEntitySet="TblTiposActivos">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="cDescripcion" ColumnName="cDescripcion" />
+                <ScalarProperty Name="nTasaDepreciacion" ColumnName="nTasaDepreciacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblUsuarios">
+            <EntityTypeMapping TypeName="ActivosFijosModel.TblUsuario">
+              <MappingFragment StoreEntitySet="TblUsuarios">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="cUsuario" ColumnName="cUsuario" />
+                <ScalarProperty Name="cClave" ColumnName="cClave" />
+                <ScalarProperty Name="cNombre" ColumnName="cNombre" />
+                <ScalarProperty Name="rol" ColumnName="rol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

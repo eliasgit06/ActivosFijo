@@ -1,0 +1,111 @@
+﻿@model PagedList.IPagedList<ActivosFijo.Models.TblLocacione>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row mt-5">
+    <div class="col-xl-12">
+        <div class="card">
+            <div class="card-header border-0">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <h3 class="mb-0">Lista de Ubicaciones</h3>
+                    </div>
+                    <form class="navbar-search navbar-search-light form-inline mr-sm-3" id="navbar-search-main" action="@Url.Action("Index", @ViewContext.RouteData.Values["controller"].ToString())" method="get">
+                        <div class="form-group mb-0">
+                            <div class="input-group input-group-alternative input-group-merge">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-search"></i></span>
+                                </div>
+                                <input class="form-control" placeholder="Búscar locacion" type="text" value="@(ViewBag.CurrentFilter ?? String.Empty)" name="busqueda">
+                            </div>
+                        </div>
+                        <button type="button" class="close" data-action="search-close" data-target="#navbar-search-main" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </form>
+                    <div class="col text-right">
+                        <a class="nav-link active" href="@Url.Action("Create","TblLocaciones")">
+                            <i class="fa fa-plus-circle text-success"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="table-responsive">
+                @*Table de informacion*@
+                <table class="table align-items-center table-flush">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">
+                                Acción
+                            </th>
+                            <th scope="col">
+                                @Html.DisplayNameFor(model => model.First().cDescripcion)
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    <div class="row">
+                                        <a class="nav-link active" href="@Url.Action("Edit","TblLocaciones", new { id = item.Id })">
+                                            <i class="fa fa-edit text-success"></i>
+                                        </a>
+                                        <a class="nav-link active" href="@Url.Action("Details","TblLocaciones", new { id = item.Id })">
+                                            <i class="fa fa-eye text-info"></i>
+                                        </a>
+                                        <a class="nav-link active" href="@Url.Action("Delete","TblLocaciones", new { id = item.Id })">
+                                            <i class="ni ni-fat-remove text-danger mh-100"></i>
+                                        </a>
+                                    </div>
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.cDescripcion)
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="row">
+                <div class="col ml-3">
+                    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+                    @Html.PagedListPager(Model, page => Url.Action("Index", new { page, currentFilter = ViewBag.CurrentFilter }))
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*<h2>Index</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.cDescripcion)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.cDescripcion)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            </td>
+        </tr>
+    }
+
+    </table>*@

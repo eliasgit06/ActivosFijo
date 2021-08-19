@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="fa21ca29ac6841ebb3de3b643f2f1d9c" Name="Diagram1" ZoomLevel="94">
+        <EntityTypeShape EntityType="ActivosFijosModel.Municipio" Width="1.5" PointX="3" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ActivosFijosModel.Plane" Width="1.5" PointX="3" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ActivosFijosModel.Provincia" Width="1.5" PointX="0.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ActivosFijosModel.TblActivo" Width="1.5" PointX="8.5" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ActivosFijosModel.TblCategoria" Width="1.5" PointX="5.25" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="ActivosFijosModel.TblLocacione" Width="1.5" PointX="5.25" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ActivosFijosModel.TblMovimiento" Width="1.5" PointX="11.5" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ActivosFijosModel.TblOrigene" Width="1.5" PointX="5.25" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ActivosFijosModel.TblPersona" Width="1.5" PointX="5.25" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ActivosFijosModel.TblTipoBaja" Width="1.5" PointX="8.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ActivosFijosModel.TblTiposActivo" Width="1.5" PointX="5.25" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ActivosFijosModel.TblUsuario" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="ActivosFijosModel.Municipio_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="ActivosFijosModel.TblPersona_fk2" ManuallyRouted="false" />
+        <AssociationConnector Association="ActivosFijosModel.TblPersona_plan" ManuallyRouted="false" />
+        <AssociationConnector Association="ActivosFijosModel.TblPersona_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="ActivosFijosModel.FK_TblActivo_TblCategorias" ManuallyRouted="false" />
+        <AssociationConnector Association="ActivosFijosModel.FK_TblActivo_TblLocaciones" ManuallyRouted="false" />
+        <AssociationConnector Association="ActivosFijosModel.FK_TblActivo_TblOrigenes" ManuallyRouted="false" />
+        <AssociationConnector Association="ActivosFijosModel.FK_TblActivo_TblTiposActivos" ManuallyRouted="false" />
+        <AssociationConnector Association="ActivosFijosModel.TblActivo_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="ActivosFijosModel.Movimiento_Categoria" ManuallyRouted="false" />
+        <AssociationConnector Association="ActivosFijosModel.Movimiento_Locacion" ManuallyRouted="false" />
+        <AssociationConnector Association="ActivosFijosModel.FK_TblMovimientos_TblTipoBaja" ManuallyRouted="false" />
+        <AssociationConnector Association="ActivosFijosModel.Movimiento_TipoActivo" ManuallyRouted="false" />
+        <AssociationConnector Association="ActivosFijosModel.TblMovimientos_fk" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

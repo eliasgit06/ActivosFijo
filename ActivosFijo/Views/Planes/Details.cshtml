@@ -1,0 +1,134 @@
+﻿@model ActivosFijo.Models.Plane
+
+@{
+    ViewBag.Title = "Details";
+}
+
+@*<h2>Details</h2>*@
+<div class="container-fluid mt-lg-5">
+    <div class="row">
+        <div class="col-xl-12 order-xl-">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row align-items-center">
+                        <div class="col-8">
+                            <h2 class="mb-0">Información del Plan</h2>
+                        </div>
+                        <div class="col-4 text-right">
+                            <a class="nav-link active" href="@Url.Action("Index","Planes")">
+                                <i class="ni ni-bold-left text-primary"></i>
+                                <span class="text-primary">Regresar</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="pl-lg-4">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <dl class="dl-horizontal">
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.Plan)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.Plan)
+                                    </dd>
+                                </dl>
+                            </div>
+                            <div class="col-lg-6">
+                                <dl class="dl-horizontal">
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.Descripcion)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.Descripcion)
+                                    </dd>
+                                </dl>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <dl class="dl-horizontal">
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.RegistradoPor)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.RegistradoPor)
+                                    </dd>
+                                </dl>
+                            </div>
+                            <div class="col-lg-6">
+                                <dl class="dl-horizontal">
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.FechaRegistro)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.FechaRegistro)
+                                    </dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="row align-items-center">
+                        
+                        <div class="col-12 text-right">
+                            <a class="btn btn-warning" href="@Url.Action("Edit","Planes", new { id = Model.Id })">
+                                <i class="fa fa-edit"></i>
+                                <span >Editar</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*<div>
+    <h4>Plane</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Plan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Plan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RegistradoPor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RegistradoPor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaRegistro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaRegistro)
+        </dd>
+
+    </dl>
+</div>*@
+@*<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>*@

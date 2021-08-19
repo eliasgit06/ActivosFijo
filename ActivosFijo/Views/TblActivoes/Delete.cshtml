@@ -1,0 +1,580 @@
+﻿@model ActivosFijo.Models.TblActivo
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+    <div class="container-fluid mt-lg-5">
+        <div class="row">
+            <div class="col-xl-12 order-xl-">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row align-items-center">
+                            <div class="col-8">
+                                <h2 class="mb-0">Eliminar Activo</h2>
+                            </div>
+                            <div class="col-4 text-right">
+                                <a class="nav-link active" href="@Url.Action("Index","TblActivoes")">
+                                    <i class="ni ni-bold-left text-primary"></i>
+                                    <span class="text-primary">Regresar</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="pl-lg-4">
+                            <div class="alert alert-danger" role="alert">
+                                <strong>Alerta!</strong> Esta seguro de eliminar este Activo?
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <dl class="dl-horizontal">
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.cDescripcion)
+                                        </dt>
+
+                                        <dd>
+                                            @Html.DisplayFor(model => model.cDescripcion)
+                                        </dd>
+                                    </dl>
+                                </div>
+                                <div class="col-lg-4">
+                                    <dl class="dl-horizontal">
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.cDetalle)
+                                        </dt>
+
+                                        <dd>
+                                            @Html.DisplayFor(model => model.cDetalle)
+                                        </dd>
+                                    </dl>
+                                </div>
+                                <div class="col-lg-4">
+                                    <dl class="dl-horizontal">
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.nValor)
+                                        </dt>
+
+                                        <dd>
+                                            @Html.DisplayFor(model => model.nValor)
+                                        </dd>
+                                    </dl>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <dl class="dl-horizontal">
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.nDepreciacion)
+                                        </dt>
+
+                                        <dd>
+                                            @Html.DisplayFor(model => model.nDepreciacion)
+                                        </dd>
+                                    </dl>
+                                </div>
+                                <div class="col-lg-4">
+                                    <dl class="dl-horizontal">
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.nValorLibro)
+                                        </dt>
+
+                                        <dd>
+                                            @Html.DisplayFor(model => model.nValorLibro)
+                                        </dd>
+                                    </dl>
+                                </div>
+                                <div class="col-lg-4">
+                                    <dl class="dl-horizontal">
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.cEstatus)
+                                        </dt>
+
+                                        <dd>
+                                            @Html.DisplayFor(model => model.cEstatus)
+                                        </dd>
+                                    </dl>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <dl class="dl-horizontal">
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.dFechaActivo)
+                                        </dt>
+
+                                        <dd>
+                                            @Html.DisplayFor(model => model.dFechaActivo)
+                                        </dd>
+                                    </dl>
+                                </div>
+                                <div class="col-lg-4">
+                                    <dl class="dl-horizontal">
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.cCuentaContable)
+                                        </dt>
+
+                                        <dd>
+                                            @Html.DisplayFor(model => model.cCuentaContable)
+                                        </dd>
+                                    </dl>
+                                </div>
+                                <div class="col-lg-4">
+                                    <dl class="dl-horizontal">
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.cAsignacion)
+                                        </dt>
+
+                                        <dd>
+                                            @Html.DisplayFor(model => model.cAsignacion)
+                                        </dd>
+                                    </dl>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <dl class="dl-horizontal">
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.dfechaRegistro)
+                                        </dt>
+
+                                        <dd>
+                                            @Html.DisplayFor(model => model.dfechaRegistro)
+                                        </dd>
+                                    </dl>
+                                </div>
+                                <div class="col-lg-4">
+                                    <dl class="dl-horizontal">
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.cUsuario)
+                                        </dt>
+
+                                        <dd>
+                                            @Html.DisplayFor(model => model.cUsuario)
+                                        </dd>
+                                    </dl>
+                                </div>
+                                <div class="col-lg-4">
+                                    <dl class="dl-horizontal">
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.cMarca)
+                                        </dt>
+
+                                        <dd>
+                                            @Html.DisplayFor(model => model.cMarca)
+                                        </dd>
+                                    </dl>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <dl class="dl-horizontal">
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.cModelo)
+                                        </dt>
+
+                                        <dd>
+                                            @Html.DisplayFor(model => model.cModelo)
+                                        </dd>
+                                    </dl>
+                                </div>
+                                <div class="col-lg-4">
+                                    <dl class="dl-horizontal">
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.cNoSerial)
+                                        </dt>
+
+                                        <dd>
+                                            @Html.DisplayFor(model => model.cNoSerial)
+                                        </dd>
+                                    </dl>
+                                </div>
+                                <div class="col-lg-4">
+                                    <dl class="dl-horizontal">
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.codigoOrigen)
+                                        </dt>
+
+                                        <dd>
+                                            @Html.DisplayFor(model => model.codigoOrigen)
+                                        </dd>
+                                    </dl>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <dl class="dl-horizontal">
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.codigoBN)
+                                        </dt>
+
+                                        <dd>
+                                            @Html.DisplayFor(model => model.codigoBN)
+                                        </dd>
+                                    </dl>
+                                </div>
+                                <div class="col-lg-4">
+                                    <dl class="dl-horizontal">
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.CodigoMINPRE)
+                                        </dt>
+
+                                        <dd>
+                                            @Html.DisplayFor(model => model.CodigoMINPRE)
+                                        </dd>
+                                    </dl>
+                                </div>
+                                <div class="col-lg-4">
+                                    <dl class="dl-horizontal">
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.CodigoMINERD)
+                                        </dt>
+
+                                        <dd>
+                                            @Html.DisplayFor(model => model.CodigoMINERD)
+                                        </dd>
+                                    </dl>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <dl class="dl-horizontal">
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.CodigoDIGEPEP)
+                                        </dt>
+
+                                        <dd>
+                                            @Html.DisplayFor(model => model.CodigoDIGEPEP)
+                                        </dd>
+                                    </dl>
+                                </div>
+                                <div class="col-lg-4">
+                                    <dl class="dl-horizontal">
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.FechaActualizacion)
+                                        </dt>
+
+                                        <dd>
+                                            @Html.DisplayFor(model => model.FechaActualizacion)
+                                        </dd>
+                                    </dl>
+                                </div>
+                                <div class="col-lg-4">
+                                    <dl class="dl-horizontal">
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.ActualizadoPor)
+                                        </dt>
+
+                                        <dd>
+                                            @Html.DisplayFor(model => model.ActualizadoPor)
+                                        </dd>
+                                    </dl>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <dl class="dl-horizontal">
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.TblCategoria.cDescripcion)
+                                        </dt>
+
+                                        <dd>
+                                            @Html.DisplayFor(model => model.TblCategoria.cDescripcion)
+                                        </dd>
+                                    </dl>
+                                </div>
+                                <div class="col-lg-4">
+                                    <dl class="dl-horizontal">
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.TblLocacione.cDescripcion)
+                                        </dt>
+
+                                        <dd>
+                                            @Html.DisplayFor(model => model.TblLocacione.cDescripcion)
+                                        </dd>
+                                    </dl>
+                                </div>
+                                <div class="col-lg-4">
+                                    <dl class="dl-horizontal">
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.TblOrigene.cDescripcion)
+                                        </dt>
+
+                                        <dd>
+                                            @Html.DisplayFor(model => model.TblOrigene.cDescripcion)
+                                        </dd>
+                                    </dl>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <dl class="dl-horizontal">
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.TblTiposActivo.cDescripcion)
+                                        </dt>
+
+                                        <dd>
+                                            @Html.DisplayFor(model => model.TblTiposActivo.cDescripcion)
+                                        </dd>
+                                    </dl>
+                                </div>
+                                <div class="col-lg-4">
+                                    <dl class="dl-horizontal">
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.TblPersona.cDocumento)
+                                        </dt>
+
+                                        <dd>
+                                            @Html.DisplayFor(model => model.TblPersona.cDocumento)
+                                        </dd>
+                                    </dl>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="row align-items-center">
+
+                            <div class="col-12 text-right">
+                                @using (Html.BeginForm())
+                                {
+                                    @Html.AntiForgeryToken()
+
+                                    <div class="form-actions no-color">
+                                        <input type="submit" value="Eliminar" class="btn btn-danger" />
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+@*<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>TblActivo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.cDescripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cDescripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cDetalle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cDetalle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nValor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nValor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nDepreciacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nDepreciacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nValorLibro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nValorLibro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cEstatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cEstatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dFechaActivo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dFechaActivo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cCuentaContable)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cCuentaContable)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cAsignacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cAsignacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dfechaRegistro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dfechaRegistro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cUsuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cUsuario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cMarca)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cMarca)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cModelo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cModelo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cNoSerial)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cNoSerial)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.codigoOrigen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.codigoOrigen)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.codigoBN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.codigoBN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CodigoMINPRE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CodigoMINPRE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CodigoMINERD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CodigoMINERD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CodigoDIGEPEP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CodigoDIGEPEP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaActualizacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaActualizacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ActualizadoPor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ActualizadoPor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TblCategoria.cDescripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TblCategoria.cDescripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TblLocacione.cDescripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TblLocacione.cDescripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TblOrigene.cDescripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TblOrigene.cDescripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TblTiposActivo.cDescripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TblTiposActivo.cDescripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TblPersona.cDocumento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TblPersona.cDocumento)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>*@
